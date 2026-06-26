@@ -1,0 +1,17 @@
+---
+import { site } from '../config/site';
+---
+<section id="features" class="mx-auto max-w-6xl px-5 py-20 md:py-28">
+  <h2 data-reveal class="text-center text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+    {site.featuresTitle}
+  </h2>
+  <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {site.features.map((f) => (
+      <div data-reveal class="rounded-2xl border border-line bg-elevated p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+        <div class="text-4xl">{f.icon}</div>
+        <h3 class="mt-4 text-lg font-bold text-ink">{f.title}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-muted">{f.text}</p>
+      </div>
+    ))}
+  </div>
+</section>

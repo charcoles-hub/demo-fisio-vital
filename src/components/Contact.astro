@@ -1,0 +1,46 @@
+---
+import { site } from '../config/site';
+const c = site.cta;
+---
+<section id="contacto" class="relative overflow-hidden bg-brand-700 py-20 text-white md:py-28">
+  <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
+    <div data-reveal>
+      <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">{c.title}</h2>
+      <p class="mt-4 max-w-md text-brand-100">{c.subtitle}</p>
+      <ul class="mt-8 space-y-3 text-brand-50">
+        <li>📍 {site.footer.address}</li>
+        <li>📞 {site.footer.phone}</li>
+        <li>🕒 {site.footer.hours}</li>
+      </ul>
+    </div>
+
+    <form data-reveal action="https://api.web3forms.com/submit" method="POST"
+          class="rounded-2xl bg-elevated p-7 text-ink shadow-2xl">
+      <input type="hidden" name="access_key" value={site.formAccessKey} />
+      <input type="hidden" name="subject" value={`Nuevo contacto desde ${site.name}`} />
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+      <div class="space-y-4">
+        <div>
+          <label class="text-sm font-medium text-muted">Nombre</label>
+          <input name="name" required
+                 class="mt-1 w-full rounded-lg border border-line px-4 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20" />
+        </div>
+        <div>
+          <label class="text-sm font-medium text-muted">Email o teléfono</label>
+          <input name="contacto" required
+                 class="mt-1 w-full rounded-lg border border-line px-4 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20" />
+        </div>
+        <div>
+          <label class="text-sm font-medium text-muted">Mensaje</label>
+          <textarea name="message" rows="3"
+                    class="mt-1 w-full rounded-lg border border-line px-4 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"></textarea>
+        </div>
+        <button type="submit"
+                class="w-full rounded-full bg-brand-600 px-6 py-3 font-semibold text-white transition hover:bg-brand-700">
+          Enviar
+        </button>
+        <p class="text-center text-xs text-slate-400">Te respondemos en menos de 24h.</p>
+      </div>
+    </form>
+  </div>
+</section>

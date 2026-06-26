@@ -1,0 +1,38 @@
+---
+import { site } from '../config/site';
+const h = site.hero;
+---
+<section id="hero" class="relative overflow-hidden bg-gradient-to-b from-surface-2 to-surface">
+  <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:py-28">
+    <div data-reveal>
+      {h.eyebrow && (
+        <span class="inline-block rounded-full bg-brand-100 px-4 py-1 text-sm font-semibold text-brand-700">
+          {h.eyebrow}
+        </span>
+      )}
+      <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl md:text-6xl">
+        {h.title.split('\n').map((line) => <span class="block">{line}</span>)}
+      </h1>
+      <p class="mt-6 max-w-md text-lg text-muted">{h.subtitle}</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href={h.ctaPrimary.href}
+           class="rounded-full bg-brand-600 px-7 py-3 font-semibold text-white shadow-lg shadow-brand-600/20 transition hover:bg-brand-700">
+          {h.ctaPrimary.label}
+        </a>
+        <a href={h.ctaSecondary.href}
+           class="rounded-full border border-line px-7 py-3 font-semibold text-ink transition hover:border-brand-400 hover:text-brand-500">
+          {h.ctaSecondary.label}
+        </a>
+      </div>
+    </div>
+
+    <div data-reveal class="relative">
+      {h.image ? (
+        <img src={h.image} alt={site.name}
+             class="aspect-[4/3] w-full rounded-3xl object-cover shadow-2xl"
+             onerror="this.style.display='none'" />
+      ) : null}
+      <div class="aspect-[4/3] w-full rounded-3xl bg-gradient-to-br from-brand-400 to-brand-700 shadow-2xl"></div>
+    </div>
+  </div>
+</section>

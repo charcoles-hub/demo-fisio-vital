@@ -1,0 +1,17 @@
+---
+import { site } from '../config/site';
+---
+<header class="sticky top-0 z-40 w-full border-b border-line bg-elevated/80 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+    <a href="#hero" class="font-display text-2xl tracking-wide text-brand-500">{site.logoText}</a>
+    <ul class="hidden items-center gap-8 text-sm font-medium text-muted md:flex">
+      {site.nav.map((item) => (
+        <li><a href={item.href} class="transition hover:text-brand-600">{item.label}</a></li>
+      ))}
+    </ul>
+    <a
+      href={site.hero.ctaPrimary.href}
+      class="rounded-full bg-brand-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
+    >{site.hero.ctaPrimary.label}</a>
+  </nav>
+</header>
